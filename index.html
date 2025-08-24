@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>バーバーヨコヤマ｜地域密着の理容室</title>
+  <title>床屋｜地域密着の理容室</title>
   <style>
     body {
       font-family: 'Helvetica Neue', sans-serif;
@@ -161,7 +161,10 @@
 </head>
 <body>
   <header class="site-header">
-    <span class="logo">バーバーヨコヤマ</span>
+    <span class="logo">
+    <img src="signpoll.jpg" alt="サインポール" style="height:40px; vertical-align:middle; margin-right:10px;">
+    バーバー横山
+  </span>
     <nav>
       <a href="#menu">メニュー</a>
       <a href="#reserve">予約</a>
@@ -197,7 +200,7 @@
         <p><strong>徒歩の場合（約10分〜12分）</strong></p>
         <p>JR茅ヶ崎駅北口を出ます。</p>
         <p>北口のロータリーを直進し、「南湖通り」をまっすぐ進みます。</p>
-        <p>「若松町」交差点を目指して歩き、交差点の角に目的地「バーバー横山」があります。</p>
+        <p>「若松町」交差点を目指して歩き、交差点の角に目的地「バーバーヨコヤマ」があります。</p>
         <p>目印は道路沿いの店舗看板と建物の外観です。</p>
 
         <p><strong>バス利用の場合（約5分）</strong></p>
@@ -215,4 +218,40 @@
       <h2>店内の雰囲気</h2>
       <div class="gallery">
         <a href="cut_sheet_all.jpg"><img src="cut_sheet_all.jpg" alt="店内の様子3"></a>
-        <a href="cut_sheet_1.jpg"><img src="cut_sheet
+        <a href="cut_sheet_1.jpg"><img src="cut_sheet_1.jpg" alt="店内の様子1"></a>
+        <a href="cut_sheet_2.jpg"><img src="cut_sheet_2.jpg" alt="店内の様子2"></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img src="" alt="拡大画像">
+  </div>
+
+  <footer>
+    <p>&copy; <span id="y"></span> barber横山</p>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const galleryLinks = document.querySelectorAll('.gallery a');
+
+    galleryLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        lightboxImg.src = link.href;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
