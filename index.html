@@ -20,25 +20,32 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     }
 
     .logo {
       font-size: 24px;
       font-weight: bold;
       color: #222;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 12px;
     }
 
     nav a {
-      margin-left: 15px;
+      margin-left: 20px;
       text-decoration: none;
       color: #555;
       font-weight: bold;
-      transition: color 0.3s;
+      transition: 0.3s;
     }
 
     nav a:hover { color: #000; }
@@ -46,47 +53,47 @@
     /* ヒーロー */
     .hero {
       background: #eaeaea url('logo.jpg') no-repeat center center;
-      background-size: contain;
+      background-size: cover;
       text-align: center;
-      padding: 80px 20px;
+      padding: 120px 20px;
+      position: relative;
     }
 
     .hero h2 {
-      margin: 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-      background-color: rgba(255,255,255,0.7);
       display: inline-block;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-size: 2rem;
+      background: rgba(255,255,255,0.85);
+      padding: 25px 40px;
+      border-radius: 12px;
+      font-size: 2.5rem;
       color: #222;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     /* セクション */
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     section h2 {
       margin-top: 0;
-      font-size: 1.8rem;
-      margin-bottom: 25px;
+      font-size: 2rem;
+      margin-bottom: 40px;
       text-align: center;
       position: relative;
       display: inline-block;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
       color: #222;
     }
 
     section h2::after {
       content: "";
       display: block;
-      width: 50px;
-      height: 3px;
+      width: 60px;
+      height: 4px;
       background-color: #444;
-      margin: 5px auto 0;
+      margin: 10px auto 0;
       border-radius: 2px;
     }
 
@@ -94,13 +101,13 @@
     .gallery {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
       justify-content: center;
     }
 
     .gallery a, .gallery img {
       width: 30%;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -109,15 +116,15 @@
       width: 100%;
       display: block;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      filter: grayscale(60%);
-      transition: transform 0.3s, filter 0.3s;
+      filter: grayscale(70%);
+      transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .gallery a:hover img {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transform: scale(1.08);
       filter: grayscale(0%);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     /* Lightbox */
@@ -128,43 +135,42 @@
       align-items: center;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       z-index: 1000;
     }
 
     #lightbox img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
     }
 
     /* アクセス文整形 */
-    .access-text p {
-      margin: 10px 0;
+    .access-text p { margin: 12px 0; }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      font-size: 1rem;
+      color: #555;
     }
 
     /* レスポンシブ */
     @media (max-width: 992px) { .gallery a, .gallery img { width: 45%; } }
     @media (max-width: 600px) { .gallery a, .gallery img { width: 100%; } }
-
-    /* フッター */
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      background: #fff;
-      border-top: 1px solid #ccc;
-      font-size: 0.9rem;
-      color: #555;
-    }
+    @media (max-width: 600px) { .hero h2 { font-size: 1.8rem; padding: 15px 20px; } }
   </style>
 </head>
 <body>
   <header class="site-header">
     <span class="logo">
-    <img src="signpoll.jpg" alt="サインポール" style="height:40px; vertical-align:middle; margin-right:10px;">
-    バーバー横山
-  </span>
+      <img src="signpoll.jpg" alt="サインポール">
+      バーバー横山
+    </span>
     <nav>
       <a href="#menu">メニュー</a>
       <a href="#reserve">予約</a>
@@ -175,6 +181,7 @@
 
   <main>
     <section class="hero">
+      <h2>創業60年の茅ヶ崎市密着の理容室</h2>
     </section>
 
     <section id="menu">
@@ -209,7 +216,7 @@
       </div>
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1368.5360398513078!2d139.41473152800276!3d35.332172561310784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018527a90c9d6b1%3A0xf28a3d5b5fd0f4f4!2z5qiq5bGx55CG5a65!5e0!3m2!1sja!2sjp!4v1756023353590!5m2!1sja!2sjp" 
-        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </section>
 
@@ -223,7 +230,6 @@
     </section>
   </main>
 
-  <!-- Lightbox -->
   <div id="lightbox">
     <img src="" alt="拡大画像">
   </div>
@@ -235,7 +241,6 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
     const galleryLinks = document.querySelectorAll('.gallery a');
