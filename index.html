@@ -42,10 +42,24 @@
       font-weight: bold;
     }
 
+    /* ヒーローセクション（背景にロゴ） */
     .hero {
+      background-image: url('logo.png'); /* 背景に敷くロゴ画像 */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
       background-color: #e0f7fa;
       text-align: center;
-      padding: 50px 20px;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      color: #000;
+      background-color: rgba(255,255,255,0.7); /* 文字を見やすく */
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 5px;
     }
 
     section {
@@ -54,13 +68,6 @@
 
     section h2 {
       margin-top: 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f4f4f4;
-      border-top: 1px solid #ddd;
     }
 
     /* ギャラリー共通 */
@@ -90,6 +97,13 @@
         width: 100%;
       }
     }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-top: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
@@ -113,11 +127,6 @@
 
     <section id="menu">
       <h2>メニュー</h2>
-      <ul>
-        <li>カット 3,000円</li>
-        <li>シェービング 2,000円</li>
-        <li>カラー 5,000円</li>
-      </ul>
       <!-- メニュー画像ギャラリー -->
       <div class="gallery">
         <img src="menu.jpg" alt="カット例">
