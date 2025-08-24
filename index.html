@@ -26,21 +26,13 @@
       z-index: 10;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
+    .logo { font-size: 24px; font-weight: bold; }
+    nav a { margin-left: 15px; text-decoration: none; color: #333; font-weight: bold; }
 
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    /* ヒーロー */
+    /* ヒーロー：背景にロゴ */
     .hero {
-      background: #e0f0ff;
+      background: #e0f0ff url('logo.jpg') no-repeat center center;
+      background-size: contain;
       text-align: center;
       padding: 80px 20px;
     }
@@ -110,13 +102,27 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
+    /* Lightbox用 */
+    #lightbox {
+      position: fixed;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
     /* レスポンシブ */
-    @media (max-width: 992px) {
-      .gallery a, .gallery img { width: 45%; }
-    }
-    @media (max-width: 600px) {
-      .gallery a, .gallery img { width: 100%; }
-    }
+    @media (max-width: 992px) { .gallery a, .gallery img { width: 45%; } }
+    @media (max-width: 600px) { .gallery a, .gallery img { width: 100%; } }
 
     /* フッター */
     footer {
@@ -148,9 +154,9 @@
     <section id="menu">
       <h2>メニュー</h2>
       <div class="gallery">
-        <a href="menu.jpg" target="_blank"><img src="menu.jpg" alt="カット例"></a>
-        <a href="menu-2.jpg" target="_blank"><img src="menu-2.jpg" alt="シェービング例"></a>
-        <a href="women-menu.jpg" target="_blank"><img src="women-menu.jpg" alt="カラー例"></a>
+        <a href="menu.jpg"><img src="menu.jpg" alt="カット例"></a>
+        <a href="menu-2.jpg"><img src="menu-2.jpg" alt="シェービング例"></a>
+        <a href="women-menu.jpg"><img src="women-menu.jpg" alt="カラー例"></a>
       </div>
     </section>
 
@@ -172,19 +178,42 @@
     <section id="gallery">
       <h2>店内の雰囲気</h2>
       <div class="gallery">
-        <a href="cut_sheet_all.jpg" target="_blank"><img src="cut_sheet_all.jpg" alt="店内の様子3"></a>
-        <a href="cut_sheet_1.jpg" target="_blank"><img src="cut_sheet_1.jpg" alt="店内の様子1"></a>
-        <a href="cut_sheet_2.jpg" target="_blank"><img src="cut_sheet_2.jpg" alt="店内の様子2"></a>
+        <a href="cut_sheet_all.jpg"><img src="cut_sheet_all.jpg" alt="店内の様子3"></a>
+        <a href="cut_sheet_1.jpg"><img src="cut_sheet_1.jpg" alt="店内の様子1"></a>
+        <a href="cut_sheet_2.jpg"><img src="cut_sheet_2.jpg" alt="店内の様子2"></a>
       </div>
     </section>
   </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img src="" alt="拡大画像">
+  </div>
 
   <footer>
     <p>© <span id="y"></span> barber横山</p>
   </footer>
 
   <script>
+    // 年表示
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Lightbox処理
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const galleryLinks = document.querySelectorAll('.gallery a');
+
+    galleryLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        lightboxImg.src = link.href;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
   </script>
 </body>
 </html>
