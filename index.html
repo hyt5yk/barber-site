@@ -28,9 +28,7 @@
     }
 
     /* サインポール文字 */
-    .logo.barber-stripe {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .barber-stripe {
       background: repeating-linear-gradient(
         45deg,
         #d40000,
@@ -44,6 +42,11 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
 
     nav a {
@@ -185,7 +188,9 @@
 </head>
 <body>
   <header class="site-header">
-    <span class="logo barber-stripe">バーバーヨコヤマ</span>
+    <span class="logo">
+      バ<span class="barber-stripe">ー</span>バ<span class="barber-stripe">ー</span>ヨコヤマ
+    </span>
     <nav>
       <a href="#menu">メニュー</a>
       <a href="#reserve">予約</a>
@@ -202,9 +207,9 @@
     <section id="menu">
       <h2>メニュー</h2>
       <div class="gallery">
-        <a href="menu.jpg"><img src="menu.jpg"></a>
-        <a href="menu-2.jpg"><img src="menu-2.jpg"></a>
-        <a href="women-menu.jpg"><img src="women-menu.jpg"></a>
+        <a href="menu.jpg"><img src="menu.jpg" alt="カット例"></a>
+        <a href="menu-2.jpg"><img src="menu-2.jpg" alt="シェービング例"></a>
+        <a href="women-menu.jpg"><img src="women-menu.jpg" alt="カラー例"></a>
       </div>
     </section>
 
@@ -219,59 +224,3 @@
       <p>神奈川県茅ケ崎市若松町1-7</p>
       <div class="access-text">
         <p><strong>徒歩の場合（約10分〜12分）</strong></p>
-        <p>JR茅ヶ崎駅北口を出ます。</p>
-        <p>北口のロータリーを直進し、「南湖通り」をまっすぐ進みます。</p>
-        <p>「若松町」交差点を目指して歩き、交差点の角に目的地「バーバー横山」があります。</p>
-        <p>目印は道路沿いの店舗看板と建物の外観です。</p>
-
-        <p><strong>バス利用の場合（約5分）</strong></p>
-        <p>JR茅ヶ崎駅北口から「茅ヶ崎駅北口」バス停に向かいます。</p>
-        <p>茅ヶ崎市コミュニティバスまたは路線バス「若松町行き」に乗車します。</p>
-        <p>「若松町」バス停で下車、徒歩1分で到着します。</p>
-      </div>
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1368.5360398513078!2d139.41473152800276!3d35.332172561310784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018527a90c9d6b1%3A0xf28a3d5b5fd0f4f4!2z5qiq5bGx55CG5a65!5e0!3m2!1sja!2sjp!4v1756023353590!5m2!1sja!2sjp" 
-        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </section>
-
-    <section id="gallery">
-      <h2>店内の雰囲気</h2>
-      <div class="gallery">
-        <a href="cut_sheet_all.jpg"><img src="cut_sheet_all.jpg" alt="店内の様子3"></a>
-        <a href="cut_sheet_1.jpg"><img src="cut_sheet_1.jpg" alt="店内の様子1"></a>
-        <a href="cut_sheet_2.jpg"><img src="cut_sheet_2.jpg" alt="店内の様子2"></a>
-      </div>
-    </section>
-  </main>
-
-  <div id="lightbox">
-    <img src="" alt="拡大画像">
-  </div>
-
-  <footer>
-    <p><span id="y"></span> barber横山</p>
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
-    const galleryLinks = document.querySelectorAll('.gallery a');
-
-    galleryLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        lightboxImg.src = link.href;
-        lightbox.style.display = 'flex';
-      });
-    });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
-  </script>
-</body>
-</html>
