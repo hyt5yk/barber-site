@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>床屋｜地域密着の理容室</title>
   <style>
-    /* リセット・基本スタイル */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -22,7 +21,6 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    /* ロゴ */
     .logo {
       display: flex;
       align-items: center;
@@ -44,18 +42,12 @@
       font-weight: bold;
     }
 
-    /* ヒーロー */
     .hero {
       background-color: #e0f7fa;
       text-align: center;
       padding: 50px 20px;
     }
 
-    .hero h2 {
-      margin: 0;
-    }
-
-    /* セクション共通 */
     section {
       padding: 30px 20px;
     }
@@ -64,25 +56,53 @@
       margin-top: 0;
     }
 
-    /* フッター */
     footer {
       text-align: center;
       padding: 20px;
       background-color: #f4f4f4;
       border-top: 1px solid #ddd;
     }
+
+    /* ギャラリー共通 */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .gallery img {
+      width: 30%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .gallery img {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery img {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
     <a href="/" class="logo">
-      <img src="logo.jpg" alt="バーバー横山">
+      <img src="logo.png" alt="バーバー横山">
       <span>バーバー横山</span>
     </a>
     <nav>
       <a href="#menu">メニュー</a>
       <a href="#reserve">予約</a>
       <a href="#access">アクセス</a>
+      <a href="#gallery">店内ギャラリー</a>
     </nav>
   </header>
 
@@ -98,6 +118,12 @@
         <li>シェービング 2,000円</li>
         <li>カラー 5,000円</li>
       </ul>
+      <!-- メニュー画像ギャラリー -->
+      <div class="gallery">
+        <img src="menu.jpg" alt="カット例">
+        <img src="menu-2.jpg" alt="シェービング例">
+        <img src="women-menu.jpg" alt="カラー例">
+      </div>
     </section>
 
     <section id="reserve">
@@ -113,6 +139,15 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1368.5360398513078!2d139.41473152800276!3d35.332172561310784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018527a90c9d6b1%3A0xf28a3d5b5fd0f4f4!2z5qiq5bGx55CG5a65!5e0!3m2!1sja!2sjp!4v1756023353590!5m2!1sja!2sjp" 
         width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
+    </section>
+
+    <section id="gallery">
+      <h2>店内の雰囲気</h2>
+      <div class="gallery">
+        <img src="cut_sheet_all" alt="店内の様子3">
+        <img src="cut_sheet_1.jpg" alt="店内の様子1">
+        <img src="cut_sheet_2.jpg" alt="店内の様子2">
+      </div>
     </section>
   </main>
 
