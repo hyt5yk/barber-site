@@ -9,6 +9,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
       line-height: 1.5;
+      background-color: #fafafa;
     }
 
     /* ヘッダー */
@@ -19,6 +20,9 @@
       padding: 10px 20px;
       background-color: #f4f4f4;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .logo {
@@ -42,67 +46,85 @@
       font-weight: bold;
     }
 
-    /* ヒーローセクション（背景にロゴ） */
+    /* ヒーローセクション */
     .hero {
-      background-image: url('logo.jpg'); /* 背景に敷くロゴ画像 */
+      background-image: url('logo.jpg'); 
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
       background-color: #e0f7fa;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
     }
 
     .hero h2 {
       margin: 0;
       color: #000;
-      background-color: rgba(255,255,255,0.7); /* 文字を見やすく */
+      background-color: rgba(255,255,255,0.7);
       display: inline-block;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 2rem;
     }
 
     section {
-      padding: 30px 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     section h2 {
       margin-top: 0;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     /* ギャラリー共通 */
     .gallery {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 15px;
       justify-content: center;
-      margin-top: 15px;
+    }
+
+    .gallery a, .gallery img {
+      width: 30%;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
     .gallery img {
-      width: 30%;
+      width: 100%;
       height: auto;
-      border-radius: 5px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .gallery a:hover img {
+      transform: scale(1.05);
     }
 
     /* レスポンシブ対応 */
-    @media (max-width: 768px) {
-      .gallery img {
+    @media (max-width: 992px) {
+      .gallery a, .gallery img {
         width: 45%;
       }
     }
 
-    @media (max-width: 480px) {
-      .gallery img {
+    @media (max-width: 600px) {
+      .gallery a, .gallery img {
         width: 100%;
       }
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px 20px;
       background-color: #f4f4f4;
       border-top: 1px solid #ddd;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -127,17 +149,10 @@
 
     <section id="menu">
       <h2>メニュー</h2>
-      <!-- メニュー画像ギャラリー -->
       <div class="gallery">
-        <a href="menu.jpg" target="_blank">
-          <img src="menu.jpg" alt="カット例">
-        </a>
-        <a href="menu-2.jpg" target="_blank">
-          <img src="menu-2.jpg" alt="シェービング例">
-        </a>
-        <a href="women-menu.jpg" target="_blank">
-          <img src="women-menu.jpg" alt="カラー例">
-        </a>
+        <a href="menu.jpg" target="_blank"><img src="menu.jpg" alt="カット例"></a>
+        <a href="menu-2.jpg" target="_blank"><img src="menu-2.jpg" alt="シェービング例"></a>
+        <a href="women-menu.jpg" target="_blank"><img src="women-menu.jpg" alt="カラー例"></a>
       </div>
     </section>
 
@@ -159,9 +174,9 @@
     <section id="gallery">
       <h2>店内の雰囲気</h2>
       <div class="gallery">
-        <img src="cut_sheet_all.jpg" alt="店内の様子3">
-        <img src="cut_sheet_1.jpg" alt="店内の様子1">
-        <img src="cut_sheet_2.jpg" alt="店内の様子2">
+        <a href="cut_sheet_all.jpg" target="_blank"><img src="cut_sheet_all.jpg" alt="店内の様子3"></a>
+        <a href="cut_sheet_1.jpg" target="_blank"><img src="cut_sheet_1.jpg" alt="店内の様子1"></a>
+        <a href="cut_sheet_2.jpg" target="_blank"><img src="cut_sheet_2.jpg" alt="店内の様子2"></a>
       </div>
     </section>
   </main>
